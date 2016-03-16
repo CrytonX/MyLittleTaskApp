@@ -1,69 +1,50 @@
+using System;
 using System.Collections.Generic;
 using Android.App;
 using Android.Content;
 using Android.OS;
 using Android.Widget;
-using Tasky.Shared;
-using TaskyAndroid;
-using TaskyAndroid.ApplicationLayer;
-using Android.Content.PM;
+using Android.Runtime;
+using Android.Views;
 
-namespace TaskyAndroid.Screens 
+namespace TaskyAndroid
 {
 	/// <summary>
 	/// Main ListView screen displays a list of tasks, plus an [Add] button
 	/// </summary>
 	[Activity (Label = "Tasky",  
 		Icon="@drawable/icon",
-		MainLauncher = true,
-		ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation,
-		ScreenOrientation = ScreenOrientation.Portrait)]
+		MainLauncher = true)]
+	
 	public class HomeScreen : Activity 
 	{
-		TodoItemListAdapter taskList;
-		IList<TodoItem> tasks;
-		Button addTaskButton;
-		ListView taskListView;
-		
+		List<TableItem> tableItems = new List<TableItem>();
+		ListView listView;
+
 		protected override void OnCreate (Bundle bundle)
 		{
 			base.OnCreate (bundle);
-
-			// set our layout to be the home screen
 			SetContentView(Resource.Layout.HomeScreen);
+			listView = FindViewById<ListView>(Resource.Id.TaskList);
 
-			//Find our controls
-			taskListView = FindViewById<ListView> (Resource.Id.TaskList);
-			addTaskButton = FindViewById<Button> (Resource.Id.AddButton);
+			tableItems.Add(new TableItem() { Heading = "Vegetables", SubHeading = "65 items"});
+			tableItems.Add(new TableItem() { Heading = "Fruits", SubHeading = "17 items"});
+			tableItems.Add(new TableItem() { Heading = "Flower Buds", SubHeading = "5 items"});
+			tableItems.Add(new TableItem() { Heading = "Legumes", SubHeading = "33 items"});
+			tableItems.Add(new TableItem() { Heading = "Bulbs", SubHeading = "18 items"});
+			tableItems.Add(new TableItem() { Heading = "Tubers", SubHeading = "43 items"});
 
-			// wire up add task button handler
-			if(addTaskButton != null) {
-				addTaskButton.Click += (sender, e) => {
-					StartActivity(typeof(TodoItemScreen));
-				};
-			}
-			
-			// wire up task click handler
-			if(taskListView != null) {
-				taskListView.ItemClick += (object sender, AdapterView.ItemClickEventArgs e) => {
-					var taskDetails = new Intent (this, typeof (TodoItemScreen));
-					taskDetails.PutExtra ("TaskID", tasks[e.Position].ID);
-					StartActivity (taskDetails);
-				};
-			}
+			listView.Adapter = new HomeScreenAdapter(this, tableItems);
+
+			listView.ItemClick += OnListItemClick;
+
 		}
-		
-		protected override void OnResume ()
+
+		void OnListItemClick(object sender, AdapterView.ItemClickEventArgs e)
 		{
-			base.OnResume ();
-
-			tasks = TodoItemManager.GetTasks();
-			
-			// create our adapter
-			taskList = new TodoItemListAdapter(this, tasks);
-
-			//Hook up our adapter to our ListView
-			taskListView.Adapter = taskList;
+			var listView = sender as ListView;
+			var t = tableItems[e.Position];
+			Android.Widget.Toast.MakeText(this, t.Heading, Android.Widget.ToastLength.Short).Show();
 		}
 	}
 }

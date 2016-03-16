@@ -55,6 +55,8 @@
     <Compile Include="TodoItemScreen.cs" />
     <Compile Include="TodoItemListAdapter.cs" />
     <Compile Include="HomeScreen.cs" />
+    <Compile Include="HomeScreenAdapter.cs" />
+    <Compile Include="TableItem.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
