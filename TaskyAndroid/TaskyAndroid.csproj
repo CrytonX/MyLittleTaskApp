@@ -54,9 +54,9 @@
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="TodoItemScreen.cs" />
     <Compile Include="TodoItemListAdapter.cs" />
-    <Compile Include="HomeScreen.cs" />
     <Compile Include="HomeScreenAdapter.cs" />
     <Compile Include="TableItem.cs" />
+    <Compile Include="HomeScreen.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -73,6 +73,8 @@
     <AndroidResource Include="Resources\drawable-mdpi\Icon.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\Icon.png" />
     <AndroidResource Include="Resources\values\Styles.xml" />
+    <AndroidResource Include="Resources\drawable-hdpi\TopGraphic_NIGHT.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\createTaskButton.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable-mdpi\" />

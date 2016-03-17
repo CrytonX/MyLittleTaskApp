@@ -14,7 +14,8 @@ namespace TaskyAndroid
 	/// </summary>
 	[Activity (Label = "Tasky",  
 		Icon="@drawable/icon",
-		MainLauncher = true)]
+		MainLauncher = true,
+		Theme = "@android:style/Theme.Holo.Light.NoActionBar.Fullscreen")]
 	
 	public class HomeScreen : Activity 
 	{
@@ -27,12 +28,12 @@ namespace TaskyAndroid
 			SetContentView(Resource.Layout.HomeScreen);
 			listView = FindViewById<ListView>(Resource.Id.TaskList);
 
-			tableItems.Add(new TableItem() { Heading = "Vegetables", SubHeading = "65 items"});
-			tableItems.Add(new TableItem() { Heading = "Fruits", SubHeading = "17 items"});
-			tableItems.Add(new TableItem() { Heading = "Flower Buds", SubHeading = "5 items"});
-			tableItems.Add(new TableItem() { Heading = "Legumes", SubHeading = "33 items"});
-			tableItems.Add(new TableItem() { Heading = "Bulbs", SubHeading = "18 items"});
-			tableItems.Add(new TableItem() { Heading = "Tubers", SubHeading = "43 items"});
+			tableItems.Add(new TableItem() { Heading = "Today", SubHeading = "April 18th 2016"});
+			tableItems.Add(new TableItem() { Heading = "Tomorrow", SubHeading = "April 19th 2016"});
+			tableItems.Add(new TableItem() { Heading = "Thursday", SubHeading = "April 20th 2016"});
+			tableItems.Add(new TableItem() { Heading = "Friday", SubHeading = "April 21st 2016"});
+			tableItems.Add(new TableItem() { Heading = "Saturday", SubHeading = "April 22nd 2016"});
+			tableItems.Add(new TableItem() { Heading = "Sunday", SubHeading = "April 23rd 2016"});
 
 			listView.Adapter = new HomeScreenAdapter(this, tableItems);
 
