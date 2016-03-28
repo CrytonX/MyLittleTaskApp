@@ -1,50 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
+    <ImageView
+        android:src="@drawable/topgraphic_create"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:id="@+id/imageView1" />
     <TextView
         android:id="@+id/NameLabel"
         android:text="Name:"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/TaskDetailsHeader" />
+        android:layout_below="@+id/imageView1"
+        android:textSize="30dp"
+        android:layout_marginLeft="40.0dp" />
     <EditText
         android:id="@+id/NameText"
-        android:layout_width="fill_parent"
+        android:layout_width="252.0dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/NameLabel"
         android:imeOptions="actionNext"
+        android:layout_alignBottom="@id/NameLabel"
         android:layout_toRightOf="@id/NameLabel"
-        android:maxLines="1" />
+        android:maxLines="1"
+        android:layout_marginRight="40dp" />
     <TextView
-        android:id="@+id/NotesLabel"
-        android:text="Notes:"
-        android:layout_width="fill_parent"
+        android:id="@+id/DateLabel"
+        android:text="Date:"
+        android:textSize="30dp"
+        android:layout_marginLeft="40.0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/NameText" />
     <EditText
-        android:id="@+id/NotesText"
-        android:layout_width="fill_parent"
+        android:id="@+id/DateText"
+        android:inputType="date"
+        android:layout_width="248.5dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/NotesLabel"
+        android:layout_alignBottom="@+id/DateLabel"
+        android:layout_toRightOf="@id/DateLabel"
         android:maxLines="1"
-        android:imeOptions="actionDone" />
+        android:imeOptions="actionDone"
+        android:layout_marginRight="40dp" />
     <CheckBox
         android:id="@+id/chkDone"
-        android:layout_below="@+id/NotesText"
+        android:layout_below="@+id/DateText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Done" />
-    <Button
+        android:layout_alignLeft="@id/DateText"
+        android:text="No Due Date" />
+    <ImageButton
         android:id="@+id/SaveButton"
-        android:text="Save"
-        android:layout_width="fill_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/chkDone" />
+        android:layout_below="@+id/chkDone"
+        android:background="@drawable/create_button"
+        android:layout_centerInParent="true" />
     <Button
         android:id="@+id/CancelDeleteButton"
         android:text="Cancel"
-        android:layout_width="fill_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/SaveButton" />
 </RelativeLayout>

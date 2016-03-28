@@ -75,6 +75,8 @@
     <AndroidResource Include="Resources\values\Styles.xml" />
     <AndroidResource Include="Resources\drawable-hdpi\TopGraphic_NIGHT.png" />
     <AndroidResource Include="Resources\drawable-hdpi\createTaskButton.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\TopGraphic_CREATE.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\Create_Button.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable-mdpi\" />

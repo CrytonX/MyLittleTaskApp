@@ -10,14 +10,14 @@ namespace TaskyAndroid.Screens
 	/// <summary>
 	/// View/edit a Task
 	/// </summary>
-	[Activity (Label = "Tasky")]			
+	[Activity (Label = "TaskDetailsScreen",Theme = "@android:style/Theme.Holo.Light.NoActionBar")]			
 	public class TodoItemScreen : Activity 
 	{
 		TodoItem task = new TodoItem();
 		Button cancelDeleteButton;
 		EditText notesTextEdit;
 		EditText nameTextEdit;
-		Button saveButton;
+		ImageButton saveButton;
 		CheckBox doneCheckbox;
 
 		protected override void OnCreate (Bundle bundle)
@@ -32,8 +32,8 @@ namespace TaskyAndroid.Screens
 			// set our layout to be the home screen
 			SetContentView(Resource.Layout.TaskDetails);
 			nameTextEdit = FindViewById<EditText>(Resource.Id.NameText);
-			notesTextEdit = FindViewById<EditText>(Resource.Id.NotesText);
-			saveButton = FindViewById<Button>(Resource.Id.SaveButton);
+			notesTextEdit = FindViewById<EditText>(Resource.Id.DateText);
+			saveButton = FindViewById<ImageButton>(Resource.Id.SaveButton);
 
 			// TODO: find the Checkbox control and set the value
 			doneCheckbox = FindViewById<CheckBox>(Resource.Id.chkDone);
