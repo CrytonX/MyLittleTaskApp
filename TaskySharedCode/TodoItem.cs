@@ -13,7 +13,11 @@ namespace Tasky.Shared
 
         public int ID { get; set; }
 		public string Name { get; set; }
-		public string Notes { get; set; }
+		public DateTime Date { get; set; }
+		public string Priority { get; set; }
+		public string Reminder { get; set; }
+
+		public string Details { get; set; }
 		public bool Done { get; set; }	// TODO: add this field to the user-interface
 	}
 }
