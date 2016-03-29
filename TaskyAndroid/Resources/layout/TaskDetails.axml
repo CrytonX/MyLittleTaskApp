@@ -11,57 +11,65 @@
         android:id="@+id/imageView1" />
     <TextView
         android:id="@+id/NameLabel"
-        android:text="Name:"
+        android:text="Name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/imageView1"
-        android:textSize="30dp"
-        android:layout_marginLeft="40.0dp" />
+        android:layout_toLeftOf="@id/NameText"
+        android:layout_alignBottom="@id/NameText"
+        android:textSize="30dp" />
     <EditText
         android:id="@+id/NameText"
-        android:layout_width="252.0dp"
+        android:layout_width="206.5dp"
         android:layout_height="wrap_content"
         android:imeOptions="actionNext"
-        android:layout_alignBottom="@id/NameLabel"
-        android:layout_toRightOf="@id/NameLabel"
+        android:layout_below="@id/imageView1"
         android:maxLines="1"
-        android:layout_marginRight="40dp" />
+        android:layout_marginRight="40dp"
+        android:layout_marginLeft="0.0dp"
+        android:layout_alignParentRight="true" />
     <TextView
         android:id="@+id/DateLabel"
-        android:text="Date:"
+        android:text="Due Date"
         android:textSize="30dp"
-        android:layout_marginLeft="40.0dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/NameText" />
+        android:layout_toLeftOf="@id/DateText"
+        android:layout_alignBottom="@id/DateText" />
     <EditText
         android:id="@+id/DateText"
         android:inputType="date"
-        android:layout_width="248.5dp"
+        android:layout_width="206.5dp"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/DateLabel"
-        android:layout_toRightOf="@id/DateLabel"
         android:maxLines="1"
         android:imeOptions="actionDone"
-        android:layout_marginRight="40dp" />
+        android:layout_marginRight="40dp"
+        android:layout_below="@id/NameText"
+        android:layout_alignParentRight="true" />
     <CheckBox
         android:id="@+id/chkDone"
-        android:layout_below="@+id/DateText"
+        android:layout_below="@id/DateText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@id/DateText"
         android:text="No Due Date" />
+    <Spinner
+        android:id="@+id/priority"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:prompt="@string/priority"
+        android:layout_below="@id/chkDone" />
     <ImageButton
         android:id="@+id/SaveButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/chkDone"
         android:background="@drawable/create_button"
-        android:layout_centerInParent="true" />
+        android:layout_centerInParent="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="19.0dp" />
     <Button
         android:id="@+id/CancelDeleteButton"
         android:text="Cancel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/SaveButton" />
+        android:layout_below="@id/SaveButton" />
 </RelativeLayout>

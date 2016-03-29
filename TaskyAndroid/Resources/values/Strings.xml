@@ -2,4 +2,10 @@
 <resources>
 	<string name="hello">Hello World, Click Me!</string>
 	<string name="app_name">TaskyAndroid</string>
+
+	<string-array name="priority">
+		<item>High</item>
+		<item>Medium</item>
+		<item>Low</item>
+	</string-array>
 </resources>
