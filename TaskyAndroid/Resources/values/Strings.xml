@@ -3,6 +3,7 @@
 	<string name="hello">Hello World, Click Me!</string>
 	<string name="app_name">TaskyAndroid</string>
 
+	<string name="priorityDesc">Choose a priority</string>
 	<string-array name="priority">
 		<item>High</item>
 		<item>Medium</item>

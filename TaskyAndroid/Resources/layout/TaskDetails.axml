@@ -9,14 +9,6 @@
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
         android:id="@+id/imageView1" />
-    <TextView
-        android:id="@+id/NameLabel"
-        android:text="Name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_toLeftOf="@id/NameText"
-        android:layout_alignBottom="@id/NameText"
-        android:textSize="30dp" />
     <EditText
         android:id="@+id/NameText"
         android:layout_width="206.5dp"
@@ -24,17 +16,17 @@
         android:imeOptions="actionNext"
         android:layout_below="@id/imageView1"
         android:maxLines="1"
-        android:layout_marginRight="40dp"
+        android:layout_marginRight="40sp"
         android:layout_marginLeft="0.0dp"
         android:layout_alignParentRight="true" />
     <TextView
-        android:id="@+id/DateLabel"
-        android:text="Due Date"
-        android:textSize="30dp"
+        android:id="@+id/NameLabel"
+        android:text="Name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toLeftOf="@id/DateText"
-        android:layout_alignBottom="@id/DateText" />
+        android:layout_toLeftOf="@id/NameText"
+        android:layout_alignBottom="@id/NameText"
+        android:textSize="25sp" />
     <EditText
         android:id="@+id/DateText"
         android:inputType="date"
@@ -45,6 +37,14 @@
         android:layout_marginRight="40dp"
         android:layout_below="@id/NameText"
         android:layout_alignParentRight="true" />
+    <TextView
+        android:id="@+id/DateLabel"
+        android:text="Due Date"
+        android:textSize="25sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@id/DateText"
+        android:layout_alignBottom="@id/DateText" />
     <CheckBox
         android:id="@+id/chkDone"
         android:layout_below="@id/DateText"
@@ -54,10 +54,70 @@
         android:text="No Due Date" />
     <Spinner
         android:id="@+id/priority"
+        android:layout_width="206.5dp"
+        android:layout_marginRight="40dp"
+        android:layout_height="wrap_content"
+        android:prompt="@string/priorityDesc"
+        android:layout_below="@id/chkDone"
+        android:layout_alignParentRight="true" />
+    <TextView
+        android:id="@+id/PriorityLabel"
+        android:text="Priority"
+        android:textSize="25sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:prompt="@string/priority"
-        android:layout_below="@id/chkDone" />
+        android:layout_toLeftOf="@id/priority"
+        android:layout_alignBottom="@id/priority" />
+    <Spinner
+        android:id="@+id/reminder"
+        android:layout_width="206.5dp"
+        android:layout_marginRight="40dp"
+        android:layout_height="wrap_content"
+        android:prompt="@string/priorityDesc"
+        android:layout_below="@id/priority"
+        android:layout_alignParentRight="true" />
+    <TextView
+        android:id="@+id/ReminderLabelLabel"
+        android:text="Reminder"
+        android:textSize="25sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@id/reminder"
+        android:layout_alignBottom="@id/reminder" />
+    <Spinner
+        android:id="@+id/colorTag"
+        android:layout_width="206.5dp"
+        android:layout_marginRight="40dp"
+        android:layout_height="wrap_content"
+        android:prompt="@string/priorityDesc"
+        android:layout_below="@id/reminder"
+        android:layout_alignParentRight="true" />
+    <TextView
+        android:id="@+id/colorTagLabel"
+        android:text="Color Tag"
+        android:textSize="25sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@id/colorTag"
+        android:layout_alignBottom="@id/colorTag" />
+    <EditText
+        android:id="@+id/Detail"
+        android:layout_width="206.5dp"
+        android:layout_height="98.0dp"
+        android:imeOptions="actionNext"
+        android:layout_below="@id/colorTagLabel"
+        android:maxLines="1"
+        android:layout_marginRight="40dp"
+        android:layout_marginLeft="0.0dp"
+        android:layout_alignParentRight="true" />
+    <TextView
+        android:id="@+id/DetailsLabel"
+        android:text="Details"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@id/Detail"
+        android:layout_alignTop="@id/Detail"
+        android:textSize="25sp" />
     <ImageButton
         android:id="@+id/SaveButton"
         android:layout_width="wrap_content"

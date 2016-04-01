@@ -54,7 +54,7 @@ namespace Tasky.Shared
 			var t = new TodoItem ();
 			t.ID = Convert.ToInt32 (r ["_id"]);
 			t.Name = r ["Name"].ToString ();
-			t.Notes = r ["Notes"].ToString ();
+			//t.Date = r ["Notes"].ToString ();
 			t.Done = Convert.ToInt32 (r ["Done"]) == 1 ? true : false;
 			return t;
 		}
@@ -108,7 +108,7 @@ namespace Tasky.Shared
 					using (var command = connection.CreateCommand ()) {
 						command.CommandText = "UPDATE [Items] SET [Name] = ?, [Notes] = ?, [Done] = ? WHERE [_id] = ?;";
 						command.Parameters.Add (new SqliteParameter (DbType.String) { Value = item.Name });
-						command.Parameters.Add (new SqliteParameter (DbType.String) { Value = item.Notes });
+						//command.Parameters.Add (new SqliteParameter (DbType.String) { Value = item.Notes });
 						command.Parameters.Add (new SqliteParameter (DbType.Int32) { Value = item.Done });
 						command.Parameters.Add (new SqliteParameter (DbType.Int32) { Value = item.ID });
 						r = command.ExecuteNonQuery ();
@@ -121,7 +121,7 @@ namespace Tasky.Shared
 					using (var command = connection.CreateCommand ()) {
 						command.CommandText = "INSERT INTO [Items] ([Name], [Notes], [Done]) VALUES (? ,?, ?)";
 						command.Parameters.Add (new SqliteParameter (DbType.String) { Value = item.Name });
-						command.Parameters.Add (new SqliteParameter (DbType.String) { Value = item.Notes });
+						//command.Parameters.Add (new SqliteParameter (DbType.String) { Value = item.Notes });
 						command.Parameters.Add (new SqliteParameter (DbType.Int32) { Value = item.Done });
 						r = command.ExecuteNonQuery ();
 					}

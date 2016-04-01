@@ -46,7 +46,7 @@ namespace TaskyAndroid.Screens
 			cancelDeleteButton.Text = (task.ID == 0 ? "Cancel" : "Delete");
 			
 			nameTextEdit.Text = task.Name; 
-			notesTextEdit.Text = task.Notes;
+			//notesTextEdit.Text = task.Date;
 
 			// button clicks 
 			cancelDeleteButton.Click += (sender, e) => { CancelDelete(); };
@@ -56,7 +56,7 @@ namespace TaskyAndroid.Screens
 		void Save()
 		{
 			task.Name = nameTextEdit.Text;
-			task.Notes = notesTextEdit.Text;
+			//task.Date = notesTextEdit.Text;
 			//TODO: 
 			task.Done = doneCheckbox.Checked;
 
