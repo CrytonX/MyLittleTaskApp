@@ -4,6 +4,7 @@ using Android.OS;
 using Android.Widget;
 using Tasky.Shared;
 using TaskyAndroid;
+using System;
 
 namespace TaskyAndroid.Screens 
 {
@@ -51,6 +52,23 @@ namespace TaskyAndroid.Screens
 			// button clicks 
 			cancelDeleteButton.Click += (sender, e) => { CancelDelete(); };
 			saveButton.Click += (sender, e) => { Save(); };
+
+			Spinner spinner = FindViewById<Spinner> (Resource.Id.priority);
+
+			spinner.ItemSelected += new EventHandler<AdapterView.ItemSelectedEventArgs> (spinner_ItemSelected);
+			var adapter = ArrayAdapter.CreateFromResource (
+				this, Resource.Array.priority, Android.Resource.Layout.SimpleSpinnerItem);
+
+			adapter.SetDropDownViewResource (Android.Resource.Layout.SimpleSpinnerDropDownItem);
+			spinner.Adapter = adapter;
+		}
+
+		private void spinner_ItemSelected (object sender, AdapterView.ItemSelectedEventArgs e)
+		{
+			Spinner spinner = (Spinner)sender;
+
+			string toast = string.Format ("{0}", spinner.GetItemAtPosition (e.Position));
+			Toast.MakeText (this, toast, ToastLength.Long).Show ();
 		}
 
 		void Save()
