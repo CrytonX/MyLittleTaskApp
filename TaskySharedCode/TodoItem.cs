@@ -13,7 +13,8 @@ namespace Tasky.Shared
 
         public int ID { get; set; }
 		public string Name { get; set; }
-		public DateTime Date { get; set; }
+		//public DateTime Date { get; set; }
+		public string Date {get; set;}
 		public string Priority { get; set; }
 		public string Reminder { get; set; }
 

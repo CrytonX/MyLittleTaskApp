@@ -20,6 +20,7 @@ namespace TaskyAndroid.Screens
 		EditText nameTextEdit;
 		ImageButton saveButton;
 		CheckBox doneCheckbox;
+		Spinner spinner;
 
 		protected override void OnCreate (Bundle bundle)
 		{
@@ -53,11 +54,10 @@ namespace TaskyAndroid.Screens
 			cancelDeleteButton.Click += (sender, e) => { CancelDelete(); };
 			saveButton.Click += (sender, e) => { Save(); };
 
-			Spinner spinner = FindViewById<Spinner> (Resource.Id.priority);
+		 	spinner = FindViewById<Spinner> (Resource.Id.priority);
 
 			spinner.ItemSelected += new EventHandler<AdapterView.ItemSelectedEventArgs> (spinner_ItemSelected);
-			var adapter = ArrayAdapter.CreateFromResource (
-				this, Resource.Array.priority, Android.Resource.Layout.SimpleSpinnerItem);
+			var adapter = ArrayAdapter.CreateFromResource (this, Resource.Array.priority, Android.Resource.Layout.SimpleSpinnerItem);
 
 			adapter.SetDropDownViewResource (Android.Resource.Layout.SimpleSpinnerDropDownItem);
 			spinner.Adapter = adapter;
@@ -65,17 +65,16 @@ namespace TaskyAndroid.Screens
 
 		private void spinner_ItemSelected (object sender, AdapterView.ItemSelectedEventArgs e)
 		{
-			Spinner spinner = (Spinner)sender;
-
-			string toast = string.Format ("{0}", spinner.GetItemAtPosition (e.Position));
-			Toast.MakeText (this, toast, ToastLength.Long).Show ();
+			Spinner spin = (Spinner)sender;
+			task.Priority = string.Format ("{0}", spin.GetItemAtPosition (e.Position));
 		}
 
 		void Save()
 		{
 			task.Name = nameTextEdit.Text;
-			//task.Date = notesTextEdit.Text;
-			//TODO: 
+			task.Date = notesTextEdit.Text;
+			task.Reminder = "";
+			task.Details = "";
 			task.Done = doneCheckbox.Checked;
 
 			TodoItemManager.SaveTask(task);

@@ -7,6 +7,7 @@ using Android.Widget;
 using Android.Runtime;
 using Android.Views;
 using TaskyAndroid;
+using Tasky.Shared;
 
 namespace TaskyAndroid.Screens
 {
@@ -23,19 +24,18 @@ namespace TaskyAndroid.Screens
 		List<TableItem> tableItems = new List<TableItem>();
 		ListView listView;
 		ImageButton addButton;
+		IList<TodoItem> tasks;
 
 		protected override void OnCreate (Bundle bundle)
 		{
 			base.OnCreate (bundle);
 			SetContentView(Resource.Layout.HomeScreen);
+			tasks = TodoItemManager.GetTasks ();
 
-
-			tableItems.Add(new TableItem() { Heading = "Today", SubHeading = "April 18th 2016"});
-			tableItems.Add(new TableItem() { Heading = "Tomorrow", SubHeading = "April 19th 2016"});
-			tableItems.Add(new TableItem() { Heading = "Thursday", SubHeading = "April 20th 2016"});
-			tableItems.Add(new TableItem() { Heading = "Friday", SubHeading = "April 21st 2016"});
-			tableItems.Add(new TableItem() { Heading = "Saturday", SubHeading = "April 22nd 2016"});
-			tableItems.Add(new TableItem() { Heading = "Sunday", SubHeading = "April 23rd 2016"});
+			foreach (TodoItem task in tasks) 
+			{
+				tableItems.Add(new TableItem() { Heading = task.Name, SubHeading = task.Date});
+			}
 
 			listView = FindViewById<ListView>(Resource.Id.TaskList);
 			listView.Adapter = new HomeScreenAdapter(this, tableItems);
@@ -60,6 +60,18 @@ namespace TaskyAndroid.Screens
 		void OnAddTaskClick()
 		{
 			
+		}
+
+		protected override void OnResume() 
+		{
+			base.OnResume ();
+
+			tasks = TodoItemManager.GetTasks ();
+			tableItems.Clear ();
+			foreach (TodoItem task in tasks) 
+			{
+				tableItems.Add(new TableItem() { Heading = task.Name, SubHeading = task.Date});
+			}
 		}
 	}
 }
